@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { FiSend, FiLoader, FiCheckCircle, FiAlertCircle } from 'react-icons/fi'
 
 // Replace with your Google Apps Script Web App URL
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz_Placeholder_Script_ID/exec'
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyFTFP7HgGc8FTPnT_WQJR5Q8_mYMWbTJ0kP6qbydP43CcqJy4hcoJwjbhxiCCXCx7nqQ/exec'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
