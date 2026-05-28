@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { FiSend, FiLoader, FiCheckCircle, FiAlertCircle } from 'react-icons/fi'
 
 // Replace with your Google Apps Script Web App URL
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyFTFP7HgGc8FTPnT_WQJR5Q8_mYMWbTJ0kP6qbydP43CcqJy4hcoJwjbhxiCCXCx7nqQ/exec'
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyFTFP7HgGc8FTPnT_WQJR5Q8_mYMWbTJ0kP6qbydP43CcqJyhcoJwjbhxiCCXCx7nqQ/exec'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -10,7 +10,7 @@ export default function Contact() {
     email: '',
     message: ''
   })
-  
+
   const [errors, setErrors] = useState({})
   const [status, setStatus] = useState('idle') // idle, loading, success, error
   const [toastMsg, setToastMsg] = useState('')
@@ -81,7 +81,7 @@ export default function Contact() {
       setStatus('success')
       setToastMsg('Message sent successfully! Thank you.')
       setFormData({ name: '', email: '', message: '' })
-      
+
       setTimeout(() => {
         setStatus('idle')
         setToastMsg('')
@@ -91,7 +91,7 @@ export default function Contact() {
       console.error('Contact Form Error:', error)
       setStatus('error')
       setToastMsg('Failed to send message. Please try again.')
-      
+
       setTimeout(() => {
         setStatus('idle')
         setToastMsg('')
@@ -116,7 +116,7 @@ export default function Contact() {
         {/* Contact Form Wrapper */}
         <div className="glass rounded-2xl p-6 sm:p-10 border border-theme-border bg-card shadow-theme glow-card">
           <form onSubmit={handleSubmit} className="space-y-6">
-            
+
             {/* Input Row: Name & Email */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Name */}
@@ -132,11 +132,10 @@ export default function Contact() {
                   onChange={handleChange}
                   placeholder="Enter your name"
                   disabled={status === 'loading'}
-                  className={`px-4 py-3 rounded-xl border bg-surface text-primary placeholder-muted/60 text-sm focus:outline-hidden focus:ring-2 transition-all ${
-                    errors.name
+                  className={`px-4 py-3 rounded-xl border bg-surface text-primary placeholder-muted/60 text-sm focus:outline-hidden focus:ring-2 transition-all ${errors.name
                       ? 'border-red-500 focus:ring-red-500/20'
                       : 'border-theme-border focus:ring-accent/20 focus:border-accent'
-                  }`}
+                    }`}
                 />
                 {errors.name && <span className="text-[10px] text-red-500 mt-1">{errors.name}</span>}
               </div>
@@ -154,11 +153,10 @@ export default function Contact() {
                   onChange={handleChange}
                   placeholder="Enter your email"
                   disabled={status === 'loading'}
-                  className={`px-4 py-3 rounded-xl border bg-surface text-primary placeholder-muted/60 text-sm focus:outline-hidden focus:ring-2 transition-all ${
-                    errors.email
+                  className={`px-4 py-3 rounded-xl border bg-surface text-primary placeholder-muted/60 text-sm focus:outline-hidden focus:ring-2 transition-all ${errors.email
                       ? 'border-red-500 focus:ring-red-500/20'
                       : 'border-theme-border focus:ring-accent/20 focus:border-accent'
-                  }`}
+                    }`}
                 />
                 {errors.email && <span className="text-[10px] text-red-500 mt-1">{errors.email}</span>}
               </div>
@@ -177,18 +175,17 @@ export default function Contact() {
                 placeholder="Brief details about your project or inquiry..."
                 rows="5"
                 disabled={status === 'loading'}
-                className={`px-4 py-3 rounded-xl border bg-surface text-primary placeholder-muted/60 text-sm focus:outline-hidden focus:ring-2 transition-all resize-y min-h-[120px] ${
-                  errors.message
+                className={`px-4 py-3 rounded-xl border bg-surface text-primary placeholder-muted/60 text-sm focus:outline-hidden focus:ring-2 transition-all resize-y min-h-[120px] ${errors.message
                     ? 'border-red-500 focus:ring-red-500/20'
                     : 'border-theme-border focus:ring-accent/20 focus:border-accent'
-                }`}
+                  }`}
               />
               {errors.message && <span className="text-[10px] text-red-500 mt-1">{errors.message}</span>}
             </div>
 
             {/* Submit & Status */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pt-2">
-              
+
               {/* Toast Message Display */}
               <div className="flex items-center min-h-[24px]">
                 {status === 'loading' && (
